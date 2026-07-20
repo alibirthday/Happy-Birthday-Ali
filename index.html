@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ali Nawaz ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== FLOATING HEARTS GLOBAL ===================== -->
+  <div id="global-hearts" class="global-hearts"></div>
+
+  <!-- ===================== MUSIC PLAYER ===================== -->
+  <div id="music-player" class="music-player hidden">
+    <button id="music-btn" class="music-btn" title="Play / Pause Music">
+      <svg id="music-icon-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      <svg id="music-icon-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="display:none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+      </svg>
+    </button>
+    <span class="music-label">Perfect · Ed Sheeran</span>
+  </div>
+
+  <!-- ===================== AUDIO ===================== -->
+  <audio id="bg-music" loop>
+    <source src="music/perfect.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ===================== NAVIGATION ARROWS ===================== -->
+  <button id="nav-prev" class="nav-arrow nav-prev hidden" aria-label="Previous">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <button id="nav-next" class="nav-arrow nav-next hidden" aria-label="Next">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+
+  <!-- ===================== SCREEN DOTS ===================== -->
+  <div id="screen-dots" class="screen-dots hidden"></div>
+
+  <!-- ===================== CANVAS FOR PARTICLES ===================== -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ===================== CONFETTI CANVAS ===================== -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ===================== FIREWORKS CANVAS ===================== -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- ============================================================ -->
+  <!--                        SCREEN 1: WELCOME                     -->
+  <!-- ============================================================ -->
+  <section id="screen-1" class="screen active" data-screen="1">
+    <div class="screen-bg screen-1-bg"></div>
+
+    <div class="welcome-content">
+      <div class="glass-card welcome-card animate-in">
+
+        <div class="welcome-sparkles">
+          <span class="sparkle s1">✦</span>
+          <span class="sparkle s2">✦</span>
+          <span class="sparkle s3">✦</span>
+          <span class="sparkle s4">✦</span>
+          <span class="sparkle s5">✦</span>
+        </div>
+
+        <div class="welcome-top-line"></div>
+
+        <p class="welcome-subtitle">A Special Surprise For</p>
+
+        <h1 class="welcome-name">
+          <span class="name-line">Ali Nawaz</span>
+          <span class="name-heart">❤️</span>
+        </h1>
+
+        <div class="welcome-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">✦</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <p class="welcome-date">27 · July · 2006</p>
+
+        <h2 class="welcome-title">Happy Birthday</h2>
+
+        <p class="welcome-message">
+          Every heartbeat of mine carries a prayer for your happiness.<br />
+          This little surprise was made only for you.
+        </p>
+
+        <button id="open-surprise-btn" class="luxury-btn ripple-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-content">🎁 Open My Surprise</span>
+        </button>
+
+        <div class="welcome-bottom-line"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                     SCREEN 2: GALLERY                        -->
+  <!-- ============================================================ -->
+  <section id="screen-2" class="screen" data-screen="2">
+    <div class="screen-bg screen-2-bg"></div>
+
+    <div class="gallery-container">
+      <div class="section-header">
+        <p class="section-tag">Our Memories</p>
+        <h2 class="section-title">A Collection of Beautiful Moments</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">❤</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-index="0">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/Ali0.jpeg" alt="Ali" loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="gallery-zoom-icon">⊕</span>
+              </div>
+            </div>
+            <div class="gallery-caption">A Moment In Time</div>
+          </div>
+        </div>
+        <div class="gallery-item" data-index="1">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/Ali01.jpeg" alt="Ali" loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="gallery-zoom-icon">⊕</span>
+              </div>
+            </div>
+            <div class="gallery-caption">You Are My Everything</div>
+          </div>
+        </div>
+        <div class="gallery-item" data-index="2">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/Ali02.jpeg" alt="Ali" loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="gallery-zoom-icon">⊕</span>
+              </div>
+            </div>
+            <div class="gallery-caption">My Favourite Person</div>
+          </div>
+        </div>
+        <div class="gallery-item" data-index="3">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/Ali03.jpeg" alt="Ali" loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="gallery-zoom-icon">⊕</span>
+              </div>
+            </div>
+            <div class="gallery-caption">Always In My Heart</div>
+          </div>
+        </div>
+        <div class="gallery-item" data-index="4">
+          <div class="gallery-card">
+            <div class="gallery-img-wrap">
+              <img src="images/Ali04.jpeg" alt="Ali" loading="lazy" />
+              <div class="gallery-overlay">
+                <span class="gallery-zoom-icon">⊕</span>
+              </div>
+            </div>
+            <div class="gallery-caption">Forever & Always</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close">✕</button>
+        <button class="lightbox-prev" id="lightbox-prev">‹</button>
+        <div class="lightbox-img-wrap">
+          <img id="lightbox-img" src="" alt="Gallery" />
+          <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next" id="lightbox-next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                     SCREEN 3: ENVELOPE                       -->
+  <!-- ============================================================ -->
+  <section id="screen-3" class="screen" data-screen="3">
+    <div class="screen-bg screen-3-bg"></div>
+
+    <div class="envelope-container">
+      <div class="section-header">
+        <p class="section-tag">Something Special</p>
+        <h2 class="section-title">A Letter From My Heart</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">❤</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+
+      <div class="envelope-wrapper" id="envelope-wrapper">
+        <div class="envelope" id="envelope">
+          <!-- Envelope flap -->
+          <div class="envelope-flap" id="envelope-flap"></div>
+          <!-- Envelope body -->
+          <div class="envelope-body">
+            <div class="envelope-heart">❤️</div>
+            <p class="envelope-hint">Click to open</p>
+          </div>
+          <!-- Letter inside -->
+          <div class="letter" id="envelope-letter">
+            <div class="letter-inner">
+              <div class="letter-top-deco">✦ ❤ ✦</div>
+              <p class="letter-greeting">My Dearest Ali,</p>
+              <div class="letter-scroll-content">
+                <p>On this beautiful day, as the world celebrates your birthday, I find myself lost in gratitude — grateful that you exist, grateful that our paths crossed, grateful that I get to love someone as extraordinary as you.</p>
+                <p>Click the envelope to read the full letter...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="envelope-click-hint" id="envelope-click-hint">✦ Tap to Open ✦</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                    SCREEN 4: LOVE LETTER                     -->
+  <!-- ============================================================ -->
+  <section id="screen-4" class="screen" data-screen="4">
+    <div class="screen-bg screen-4-bg"></div>
+
+    <div class="letter-container">
+      <div class="letter-page glass-card">
+
+        <div class="letter-header">
+          <div class="letter-deco-top">✦ ❤ ✦</div>
+          <p class="letter-date-stamp">27th July — Your Birthday</p>
+        </div>
+
+        <div class="letter-body">
+          <p class="letter-salutation">My Dearest Ali,</p>
+
+          <div class="letter-text" id="letter-text">
+            <p>On this beautiful day, as the world celebrates your birthday, I find myself lost in gratitude — grateful that you exist, grateful that our paths crossed, and grateful that I get to love someone as extraordinary as you.</p>
+
+            <p>You came into my life like a quiet miracle — not with grand gestures, but with small, sincere moments that slowly became the most important parts of my day. The way you check on me, the way you laugh, the way you make even ordinary moments feel like something worth remembering — that is your magic, Ali. And it is irreplaceable.</p>
+
+            <p>I want you to know that you are not just someone I love — you are someone I deeply admire. Your patience, your kindness, your strength in silence — these things move me in ways I can never fully put into words. You carry your heart with such grace, and you have no idea how beautiful that is to witness.</p>
+
+            <p>Thank you for every moment you chose me. Thank you for every time you listened when I needed to be heard. Thank you for staying, even when it was hard. Thank you for loving me the way you do — purely, genuinely, and without condition.</p>
+
+            <p>I pray to Allah that He fills your life with every joy your heart quietly longs for. May He bless you with peace that surpasses understanding, with health that lets you chase your dreams, and with a future so bright and beautiful that it takes your breath away.</p>
+
+            <p>I see a future with you — one that is warm and full of laughter, full of small adventures and quiet evenings, full of growth and gratitude and love that deepens with every passing year. I want to be there for every version of you. The happy one, the tired one, the dreaming one. All of you.</p>
+
+            <p>Today is your day. Let it remind you of how deeply, endlessly, and completely you are loved.</p>
+          </div>
+
+          <div class="letter-closing">
+            <p class="letter-close-text">With every beat of my heart —</p>
+            <p class="letter-sign">Happy Birthday My Love ❤️</p>
+            <p class="letter-sign-sub">Always Be With Me.</p>
+            <p class="letter-from">— Alishba 💕</p>
+          </div>
+        </div>
+
+        <div class="letter-footer-deco">✦ ❤ ✦</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                   SCREEN 5: REASONS                          -->
+  <!-- ============================================================ -->
+  <section id="screen-5" class="screen" data-screen="5">
+    <div class="screen-bg screen-5-bg"></div>
+
+    <div class="reasons-container">
+      <div class="section-header">
+        <p class="section-tag">From My Soul</p>
+        <h2 class="section-title">10 Reasons Why I Love You</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">❤</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+
+      <div class="reasons-grid">
+
+        <div class="reason-card glass-card" data-delay="0">
+          <div class="reason-number">01</div>
+          <div class="reason-text">You never forget to ask if I've eaten, even during fights.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="100">
+          <div class="reason-number">02</div>
+          <div class="reason-text">Even when I am angry you still call me Jindu Jani.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="200">
+          <div class="reason-number">03</div>
+          <div class="reason-text">The way your eyes light up when you talk about things you love — it's the most beautiful thing I've ever seen.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="300">
+          <div class="reason-number">04</div>
+          <div class="reason-text">You make me feel safe in a world that is always too loud. Your presence alone is my calm.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="400">
+          <div class="reason-number">05</div>
+          <div class="reason-text">You are patient with me in ways I don't even deserve sometimes — and that patience heals parts of me I didn't know were broken.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="500">
+          <div class="reason-number">06</div>
+          <div class="reason-text">Your laughter — the real one, the unfiltered one — is my favourite sound in the entire universe.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="600">
+          <div class="reason-number">07</div>
+          <div class="reason-text">You remember the small things I say — the things I think no one notices — and that tells me you truly listen with your heart.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="700">
+          <div class="reason-number">08</div>
+          <div class="reason-text">The way you stay — through every hard moment, every silence, every storm — that loyalty is something I treasure more than words can say.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="800">
+          <div class="reason-number">09</div>
+          <div class="reason-text">You carry such a beautiful soul — kind without trying, gentle without being told — and loving you has made me a better person.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+        <div class="reason-card glass-card" data-delay="900">
+          <div class="reason-number">10</div>
+          <div class="reason-text">Because in every prayer I make, in every silent moment, in every version of my life — it is always you. It has always been you.</div>
+          <div class="reason-heart">❤</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                   SCREEN 6: BIRTHDAY CAKE                    -->
+  <!-- ============================================================ -->
+  <section id="screen-6" class="screen" data-screen="6">
+    <div class="screen-bg screen-6-bg"></div>
+
+    <div class="cake-container">
+      <div class="section-header">
+        <p class="section-tag">Make a Wish</p>
+        <h2 class="section-title">Happy Birthday, Ali! 🎂</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">❤</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+
+      <div class="cake-wrapper">
+        <div class="candle-container" id="candle-container">
+          <div class="candle-flame" id="candle-flame">
+            <div class="flame-inner"></div>
+            <div class="flame-glow"></div>
+          </div>
+          <div class="candle-stick"></div>
+          <div class="candle-drip d1"></div>
+          <div class="candle-drip d2"></div>
+        </div>
+
+        <div class="cake-image-wrap">
+          <img src="images/cake.png" alt="Birthday Cake" class="cake-img" id="cake-img" />
+          <div class="cake-glow"></div>
+        </div>
+
+        <button class="luxury-btn blow-btn" id="blow-candle-btn">
+          <span class="btn-glow"></span>
+          <span class="btn-content">🌬️ Blow the Candle</span>
+        </button>
+
+        <div class="cake-message hidden" id="cake-message">
+          <div class="cake-message-text">Happy Birthday Ali ❤️</div>
+          <div class="cake-message-sub">May all your wishes come true!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                      SCREEN 7: PRAYER                        -->
+  <!-- ============================================================ -->
+  <section id="screen-7" class="screen" data-screen="7">
+    <div class="screen-bg screen-7-bg"></div>
+
+    <div class="prayer-container">
+      <div class="section-header">
+        <p class="section-tag">From My Heart to Allah</p>
+        <h2 class="section-title">A Prayer For You</h2>
+        <div class="section-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">☽</span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+
+      <div class="prayer-card glass-card">
+
+        <div class="prayer-stars">
+          <span class="prayer-star ps1">✦</span>
+          <span class="prayer-star ps2">✦</span>
+          <span class="prayer-star ps3">✦</span>
+          <span class="prayer-star ps4">✦</span>
+        </div>
+
+        <div class="prayer-moon">☽</div>
+
+        <div class="prayer-arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+
+        <div class="prayer-text">
+          <p>May Allah bless you with endless happiness, peace, and good health.</p>
+          <p>May He grant you halal rizq, success in this world and the next, and a strong, unshakeable Iman.</p>
+          <p>May every dream sleeping quietly in your heart come true in the most beautiful way.</p>
+          <p>May Allah protect you always — from every pain, every loss, every darkness — and surround you with light, love, and His infinite mercy.</p>
+          <p>May He grant you a future so beautiful that it brings tears of joy to your eyes.</p>
+          <p>And may He always keep us close — in this life, and in every life after.</p>
+        </div>
+
+        <div class="prayer-ameen">
+          <span class="ameen-text">آمِيْن</span>
+          <span class="ameen-english">Ameen</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!--                     SCREEN 8: FINAL                          -->
+  <!-- ============================================================ -->
+  <section id="screen-8" class="screen" data-screen="8">
+    <div class="screen-bg screen-8-bg"></div>
+
+    <div class="final-container">
+      <div class="final-stars-bg" id="final-stars-bg"></div>
+
+      <div class="final-content glass-card">
+
+        <div class="final-sparkles">
+          <span class="sparkle s1">✦</span>
+          <span class="sparkle s2">✦</span>
+          <span class="sparkle s3">✦</span>
+          <span class="sparkle s4">★</span>
+          <span class="sparkle s5">✦</span>
+          <span class="sparkle s6">★</span>
+        </div>
+
+        <div class="final-hearts-float" id="final-hearts-float"></div>
+
+        <p class="final-tag">To My Love</p>
+
+        <h1 class="final-title">
+          Happy Birthday<br />
+          <span class="final-name">Ali Nawaz</span>
+          <span class="final-heart-emoji"> ❤️</span>
+        </h1>
+
+        <div class="final-divider">
+          <span class="divider-line"></span>
+          <span class="divider-icon">❤</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <p class="final-forever">Forever & Always</p>
+
+        <p class="final-message">Always Be With Me ❤️</p>
+
+        <div class="final-made-with">
+          <span class="made-text">Made With Love</span>
+          <span class="made-heart">❤️</span>
+          <span class="made-name">Alishba</span>
+          <span class="made-heart">❤️</span>
+        </div>
+
+        <div class="final-date-stamp">27 · July · 2025</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SCRIPT ===================== -->
+  <script src="script.js"></script>
+
+</body>
+</html>
