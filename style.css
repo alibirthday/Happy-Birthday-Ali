@@ -55,29 +55,49 @@ body{
     overflow:hidden;
 
 }
+body::before{
 
+content:"";
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+z-index:-1;
+
+background:
+
+radial-gradient(circle at 20% 20%,
+rgba(212,175,55,.08),
+transparent 35%),
+
+radial-gradient(circle at 80% 70%,
+rgba(255,255,255,.05),
+transparent 35%);
+
+}
 /*==================================
 COMMON PAGE
 ==================================*/
 .page{
 
-    position:fixed;
+position:fixed;
+inset:0;
 
-    inset:0;
+display:none;
 
-    width:100%;
+justify-content:center;
+align-items:center;
 
-    height:100vh;
+padding:20px;
 
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px;
-
-    overflow:hidden;
+overflow-y:auto;
 
 }
 
@@ -122,17 +142,16 @@ GLASS CARD
 
     border-radius:28px;
 
-    background:var(--glass);
-
-    border:1px solid var(--border);
-
-    backdrop-filter:blur(18px);
-
+   background: rgba(255,255,255,.04);
+backdrop-filter: blur(22px);
+ border:1px solid var(--border);
     box-shadow:
     0 20px 60px rgba(0,0,0,.45),
     0 0 25px rgba(212,175,55,.12);
+max-height:90vh;
 
-    overflow:hidden;
+overflow-y:auto;
+    
 
 }
 
@@ -244,10 +263,8 @@ button{
 
     font-weight:700;
 
-    background:
-    linear-gradient(45deg,#b8860b,#f0d26a);
-
-    color:#2b0b17;
+    background:linear-gradient(45deg,#d4af37,#ffd86b);
+color:#3b0a15;
 
     transition:.35s;
 
@@ -522,25 +539,23 @@ GALLERY
 
 .gallery img{
 
-    width:100%;
+width:100%;
 
-    height:260px;
+height:260px;
 
-    object-fit:cover;
+object-fit:cover;
 
-    border-radius:18px;
+border-radius:20px;
 
-    cursor:pointer;
+border:2px solid rgba(212,175,55,.35);
 
-    transition:.4s;
+transition:.4s;
 
-    border:2px solid transparent;
-
-    box-shadow:
-
-    0 10px 30px rgba(0,0,0,.35);
+cursor:pointer;
 
 }
+
+
 
 .gallery img:hover{
 
@@ -759,15 +774,15 @@ LETTER SECTION
 
     margin-top:30px;
 
-    padding:30px;
+    padding:40px;
 
     border-radius:20px;
 
     background:rgba(255,255,255,.05);
 
     border:1px solid rgba(255,255,255,.10);
-
-    text-align:left;
+    line-height:2.2;
+    text-align:justify;
 
     animation:pageFade .7s;
 
@@ -797,9 +812,9 @@ LETTER SECTION
 
 .letter-content p{
 
-    line-height:2;
-
-    font-size:17px;
+    line-height:2.2;
+    text-align:justify;
+    font-size:15px;
 
 }
 
@@ -841,9 +856,7 @@ REASONS
 
 .reason-card:hover{
 
-    transform:
-    translateY(-8px);
-
+   transform:translateY(-10px) scale(1.03);
     border-color:var(--gold);
 
     box-shadow:
@@ -1357,5 +1370,138 @@ opacity:1;
 transform:scale(4);
 opacity:0;
 }
+
+}
+.hero-photo{
+
+width:170px;
+height:170px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid #d4af37;
+
+box-shadow:0 0 35px rgba(212,175,55,.5);
+
+margin-bottom:25px;
+
+animation:heroFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes heroFloat{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-10px);}
+
+100%{transform:translateY(0);}
+
+}
+.slideshow img{
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:4px solid gold;
+
+box-shadow:0 0 35px rgba(212,175,55,.45);
+
+margin:25px auto;
+
+display:block;
+
+}
+#secretGift{
+
+margin-top:35px;
+
+cursor:pointer;
+
+color:gold;
+
+font-weight:bold;
+
+}
+/* Secret Gift */
+
+.gift-popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.85);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+padding:20px;
+
+}
+
+.gift-popup.active{
+
+display:flex;
+
+animation:fadeUp .5s;
+
+}
+
+.gift-box{
+
+max-width:650px;
+
+width:95%;
+
+padding:40px;
+
+border-radius:25px;
+
+background:linear-gradient(135deg,#2b0b17,#12040b);
+
+border:2px solid gold;
+
+text-align:center;
+
+box-shadow:0 0 40px rgba(212,175,55,.35);
+
+}
+
+.gift-box h2{
+
+color:gold;
+
+margin-bottom:25px;
+
+}
+
+.gift-box p{
+
+line-height:2;
+
+font-size:18px;
+
+}
+
+.gift-box button{
+
+margin-top:30px;
 
 }

@@ -643,9 +643,74 @@ document.querySelectorAll("img").forEach(img=>{
     img.setAttribute("draggable","false");
 
 });
+const finalImages=[
 
+"images/Ali0.jpeg",
+"images/Ali01.jpeg",
+"images/Ali02.jpeg",
+"images/Ali03.jpeg",
+"images/Ali04.jpeg"
+
+];
+
+let slide=0;
+
+setInterval(()=>{
+
+const img=document.getElementById("finalSlide");
+
+if(img){
+
+slide=(slide+1)%finalImages.length;
+
+img.src=finalImages[slide];
+
+}
+
+},2500);
 /*========================
 CONSOLE
 ========================*/
+document
+.getElementById("secretGift")
+.addEventListener("click",()=>{
 
+alert(
+
+"No matter where life takes us...\n\nYou'll always be my favourite person.\n\nHappy Birthday Ali ❤️\n\n— Alishba"
+
+);
+
+});
 console.log("❤️ Happy Birthday Ali Website Loaded ❤️");
+/* Secret Gift */
+
+const secretGift=document.getElementById("secretGift");
+
+const giftPopup=document.getElementById("giftPopup");
+
+const closeGift=document.getElementById("closeGift");
+
+if(secretGift){
+
+secretGift.onclick=()=>{
+
+giftPopup.classList.add("active");
+
+createConfetti();
+
+createFireworks();
+
+};
+
+}
+
+if(closeGift){
+
+closeGift.onclick=()=>{
+
+giftPopup.classList.remove("active");
+
+};
+
+}
