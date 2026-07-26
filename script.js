@@ -685,32 +685,97 @@ alert(
 console.log("❤️ Happy Birthday Ali Website Loaded ❤️");
 /* Secret Gift */
 
-const secretGift=document.getElementById("secretGift");
+const prayerMessage=`🌙
 
-const giftPopup=document.getElementById("giftPopup");
+Ya Allah,
 
-const closeGift=document.getElementById("closeGift");
+If Ali ever feels sad,
+be his comfort.
 
-if(secretGift){
+If he feels weak,
+be his strength.
 
-secretGift.onclick=()=>{
+If he loses hope,
+guide him back to You.
 
-giftPopup.classList.add("active");
+Bless his life with happiness,
 
+Good Health,
+
+Halal Rizq,
+
+Strong Iman,
+
+Peace,
+
+and endless success.
+
+Ameen 🤲❤️
+
+────────────────
+
+I asked Allah to protect
+the person reading this.
+
+❤️
+
+Happy Birthday Ali ❤️
+
+Made with endless prayers
+
+— Alishba
+`;
+
+const prayer=document.getElementById("prayerText");
+
+const lastPrayer=document.getElementById("lastPrayer");
+
+const popup=document.getElementById("giftPopup");
+
+const close=document.getElementById("closeGift");
+
+const gift=document.getElementById("secretGift");
+
+gift.onclick=()=>{
+
+popup.classList.add("active");
+close.style.display="none";
 createConfetti();
 
 createFireworks();
 
-};
+lastPrayer.style.display="none";
+
+prayer.textContent="";
+
+setTimeout(()=>{
+
+lastPrayer.style.display="block";
+
+let i=0;
+
+const typing=setInterval(()=>{
+
+prayer.textContent+=prayerMessage.charAt(i);
+
+i++;
+
+if(i>=prayerMessage.length){
+
+clearInterval(typing);
+
+close.style.display="inline-block";
 
 }
 
-if(closeGift){
+},35);
 
-closeGift.onclick=()=>{
-
-giftPopup.classList.remove("active");
+},5000);
 
 };
 
-}
+close.onclick=()=>{
+
+popup.classList.remove("active");
+
+};

@@ -1505,3 +1505,117 @@ font-size:18px;
 margin-top:30px;
 
 }
+.last-prayer{
+
+display:none;
+
+margin-top:35px;
+
+padding-top:25px;
+
+border-top:1px solid rgba(255,255,255,.15);
+
+animation:fadeUp 1.2s;
+
+}
+
+.last-prayer h2{
+
+color:#d4af37;
+
+margin-bottom:20px;
+
+}
+
+.last-prayer p{
+
+font-size:18px;
+
+line-height:2;
+
+white-space:pre-line;
+
+}
+#closeGift{
+
+display:none;
+
+}
+/*==============================
+FINAL GLOW
+==============================*/
+
+.final-glow{
+
+color:#ffd86b;
+
+animation:finalGlow 1.5s infinite alternate;
+
+}
+
+@keyframes finalGlow{
+
+from{
+
+text-shadow:
+0 0 8px rgba(255,215,0,.4),
+0 0 15px rgba(255,215,0,.3);
+
+transform:scale(1);
+
+}
+
+to{
+
+text-shadow:
+0 0 18px rgba(255,215,0,.9),
+0 0 35px rgba(255,215,0,.6);
+
+transform:scale(1.03);
+
+}
+
+}
+.final-glow{
+
+animation:
+
+heartbeat 1.2s infinite,
+
+finalGlow 2s infinite alternate;
+
+}
+
+@keyframes heartbeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+25%{
+
+transform:scale(1.06);
+
+}
+
+50%{
+
+transform:scale(1);
+
+}
+
+75%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
