@@ -1,16 +1,16 @@
-// ======================================
-// VARIABLES
-// ======================================
+/*=========================================
+HAPPY BIRTHDAY WEBSITE
+SCRIPT.JS
+PART 1
+=========================================*/
+
+/*========================
+PAGES
+========================*/
 
 const pages = document.querySelectorAll(".page");
 
-let currentPage = 0;
-
-// ======================================
-// SHOW PAGE
-// ======================================
-
-function showPage(index){
+function showPage(id){
 
     pages.forEach(page=>{
 
@@ -18,162 +18,479 @@ function showPage(index){
 
     });
 
-    pages[index].classList.add("active");
+    const target=document.getElementById(id);
 
-    currentPage=index;
+    if(target){
 
-}
-
-// ======================================
-// NEXT
-// ======================================
-
-function nextPage(){
-
-    if(currentPage < pages.length-1){
-
-        showPage(currentPage+1);
+        target.classList.add("active");
 
     }
 
-}
+    window.scrollTo({
 
-// ======================================
-// PREVIOUS
-// ======================================
+        top:0,
 
-function previousPage(){
+        behavior:"smooth"
 
-    if(currentPage>0){
-
-        showPage(currentPage-1);
-
-    }
+    });
 
 }
 
-// ======================================
-// START
-// ======================================
+/*========================
+BACKGROUND MUSIC
+========================*/
 
-showPage(0);
+const bgMusic=document.getElementById("bgMusic");
 
-// ======================================
-// HOME
-// ======================================
+function playMusic(){
+
+    if(!bgMusic) return;
+
+    bgMusic.volume=0.5;
+
+    bgMusic.play().catch(()=>{});
+
+}
+
+/*========================
+HOME
+========================*/
 
 const openGift=document.getElementById("openGift");
 
 if(openGift){
 
-openGift.addEventListener("click",()=>{
+    openGift.addEventListener("click",()=>{
 
-const music=document.getElementById("bgMusic");
+        playMusic();
 
-if(music){
+        showPage("memory1");
 
-music.play().catch(()=>{});
+    });
 
 }
 
-nextPage();
+/*========================
+MEMORY 1
+========================*/
+
+document.getElementById("memory1Next")
+.addEventListener("click",()=>{
+
+    showPage("memory2");
 
 });
 
+/*========================
+MEMORY 2
+========================*/
+
+document.getElementById("memory2Back")
+.addEventListener("click",()=>{
+
+    showPage("memory1");
+
+});
+
+document.getElementById("memory2Next")
+.addEventListener("click",()=>{
+
+    showPage("memory3");
+
+});
+
+/*========================
+MEMORY 3
+========================*/
+
+document.getElementById("memory3Back")
+.addEventListener("click",()=>{
+
+    showPage("memory2");
+
+});
+
+document.getElementById("memory3Next")
+.addEventListener("click",()=>{
+
+    showPage("memory4");
+
+});
+
+/*========================
+MEMORY 4
+========================*/
+
+document.getElementById("memory4Back")
+.addEventListener("click",()=>{
+
+    showPage("memory3");
+
+});
+
+document.getElementById("memory4Next")
+.addEventListener("click",()=>{
+
+    showPage("memory5");
+
+});
+
+/*========================
+MEMORY 5
+========================*/
+
+document.getElementById("memory5Back")
+.addEventListener("click",()=>{
+
+    showPage("memory4");
+
+});
+
+document.getElementById("memory5Next")
+.addEventListener("click",()=>{
+
+    showPage("letter");
+
+});
+
+/*========================
+LETTER
+========================*/
+
+const envelope=document.getElementById("envelope");
+
+const letterContent=document.getElementById("letterContent");
+
+if(envelope){
+
+    envelope.addEventListener("click",()=>{
+
+        envelope.classList.add("open");
+
+        letterContent.style.display="block";
+
+    });
+
 }
 
-// ======================================
-// GALLERY
-// ======================================
+document.getElementById("letterBack")
+.addEventListener("click",()=>{
 
-document.getElementById("galleryNext").onclick=()=>{
+    showPage("memory5");
 
-nextPage();
+});
 
-};
+document.getElementById("letterNext")
+.addEventListener("click",()=>{
 
-// ======================================
-// LETTER
-// ======================================
+    showPage("reason1");
 
-document.getElementById("letterBack").onclick=()=>{
+});
+/*=========================================
+SCRIPT.JS
+PART 2
+REASON 1 → REASON 10
+=========================================*/
 
-previousPage();
+/*========================
+REASON 1
+========================*/
 
-};
+document.getElementById("reason1Back")
+.addEventListener("click",()=>{
 
-document.getElementById("letterNext").onclick=()=>{
+    showPage("letter");
 
-nextPage();
+});
 
-};
+document.getElementById("reason1Next")
+.addEventListener("click",()=>{
 
-// ======================================
-// REASONS
-// ======================================
+    showPage("reason2");
 
-document.getElementById("reasonsBack").onclick=()=>{
+});
 
-previousPage();
+/*========================
+REASON 2
+========================*/
 
-};
+document.getElementById("reason2Back")
+.addEventListener("click",()=>{
 
-document.getElementById("reasonsNext").onclick=()=>{
+    showPage("reason1");
 
-nextPage();
+});
 
-};
+document.getElementById("reason2Next")
+.addEventListener("click",()=>{
 
-// ======================================
-// CAKE
-// ======================================
+    showPage("reason3");
 
-document.getElementById("cakeBack").onclick=()=>{
+});
 
-previousPage();
+/*========================
+REASON 3
+========================*/
 
-};
+document.getElementById("reason3Back")
+.addEventListener("click",()=>{
 
-document.getElementById("cakeNext").onclick=()=>{
+    showPage("reason2");
 
-nextPage();
+});
 
-};
+document.getElementById("reason3Next")
+.addEventListener("click",()=>{
 
-// ======================================
-// DUA
-// ======================================
+    showPage("reason4");
 
-document.getElementById("duaBack").onclick=()=>{
+});
 
-previousPage();
+/*========================
+REASON 4
+========================*/
 
-};
+document.getElementById("reason4Back")
+.addEventListener("click",()=>{
 
-document.getElementById("duaNext").onclick=()=>{
+    showPage("reason3");
 
-nextPage();
+});
 
-};
+document.getElementById("reason4Next")
+.addEventListener("click",()=>{
 
-// ======================================
-// RESTART
-// ======================================
+    showPage("reason5");
 
-document.getElementById("restart").onclick=()=>{
+});
 
-showPage(0);
+/*========================
+REASON 5
+========================*/
 
-};
-// ======================================
-// GALLERY LIGHTBOX
-// ======================================
+document.getElementById("reason5Back")
+.addEventListener("click",()=>{
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const closeLightbox = document.getElementById("closeLightbox");
+    showPage("reason4");
 
-document.querySelectorAll(".gallery img").forEach(img=>{
+});
+
+document.getElementById("reason5Next")
+.addEventListener("click",()=>{
+
+    showPage("reason6");
+
+});
+
+/*========================
+REASON 6
+========================*/
+
+document.getElementById("reason6Back")
+.addEventListener("click",()=>{
+
+    showPage("reason5");
+
+});
+
+document.getElementById("reason6Next")
+.addEventListener("click",()=>{
+
+    showPage("reason7");
+
+});
+
+/*========================
+REASON 7
+========================*/
+
+document.getElementById("reason7Back")
+.addEventListener("click",()=>{
+
+    showPage("reason6");
+
+});
+
+document.getElementById("reason7Next")
+.addEventListener("click",()=>{
+
+    showPage("reason8");
+
+});
+
+/*========================
+REASON 8
+========================*/
+
+document.getElementById("reason8Back")
+.addEventListener("click",()=>{
+
+    showPage("reason7");
+
+});
+
+document.getElementById("reason8Next")
+.addEventListener("click",()=>{
+
+    showPage("reason9");
+
+});
+
+/*========================
+REASON 9
+========================*/
+
+document.getElementById("reason9Back")
+.addEventListener("click",()=>{
+
+    showPage("reason8");
+
+});
+
+document.getElementById("reason9Next")
+.addEventListener("click",()=>{
+
+    showPage("reason10");
+
+});
+
+/*========================
+REASON 10
+========================*/
+
+document.getElementById("reason10Back")
+.addEventListener("click",()=>{
+
+    showPage("reason9");
+
+});
+
+document.getElementById("reason10Next")
+.addEventListener("click",()=>{
+
+    showPage("cake");
+
+});
+/*=========================================
+SCRIPT.JS
+PART 3
+CAKE → DUA → FINAL
+=========================================*/
+
+/*========================
+CAKE
+========================*/
+
+const cakeMessage=document.getElementById("cakeMessage");
+
+document.getElementById("cakeBack")
+.addEventListener("click",()=>{
+
+    showPage("reason10");
+
+});
+
+document.getElementById("cakeNext")
+.addEventListener("click",()=>{
+
+    showPage("dua");
+
+});
+
+document.getElementById("blowCandle")
+.addEventListener("click",()=>{
+
+    cakeMessage.innerHTML=`
+    🎉 Happy Birthday Ali ❤️<br><br>
+    May Allah bless you with endless happiness,
+    success, peace and barakah. 🤲
+    `;
+
+    createConfetti();
+
+    createFireworks();
+
+});
+
+/*========================
+DUA
+========================*/
+
+document.getElementById("duaBack")
+.addEventListener("click",()=>{
+
+    showPage("cake");
+
+});
+
+document.getElementById("duaNext")
+.addEventListener("click",()=>{
+
+    showPage("final");
+
+    createConfetti();
+
+    createFireworks();
+
+});
+
+/*========================
+FINAL
+========================*/
+
+document.getElementById("restart")
+.addEventListener("click",()=>{
+
+    if(bgMusic){
+
+        bgMusic.pause();
+
+        bgMusic.currentTime=0;
+
+    }
+
+    if(cakeMessage){
+
+        cakeMessage.innerHTML="";
+
+    }
+
+    if(letterContent){
+
+        letterContent.style.display="none";
+
+    }
+
+    if(envelope){
+
+        envelope.classList.remove("open");
+
+    }
+
+    showPage("home");
+
+});
+
+/*========================
+START
+========================*/
+
+showPage("home");
+/*=========================================
+SCRIPT.JS
+PART 4
+HEARTS • LIGHTBOX • CONFETTI • FIREWORKS
+=========================================*/
+
+/*========================
+LIGHTBOX
+========================*/
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+const closeLightbox=document.getElementById("closeLightbox");
+
+document.querySelectorAll(".memory-photo").forEach(img=>{
 
     img.addEventListener("click",()=>{
 
@@ -201,251 +518,25 @@ lightbox.addEventListener("click",(e)=>{
 
 });
 
-// ======================================
-// ENVELOPE OPEN
-// ======================================
+/*========================
+FLOATING HEARTS
+========================*/
 
-const envelope=document.getElementById("envelope");
+const hearts=document.getElementById("hearts");
 
-const letter=document.getElementById("letterContent");
-
-if(envelope){
-
-    envelope.addEventListener("click",()=>{
-
-        envelope.style.transform="scale(.8) rotateX(180deg)";
-
-        envelope.style.opacity="0";
-
-        setTimeout(()=>{
-
-            envelope.style.display="none";
-
-            letter.style.display="block";
-
-            typeWriter();
-
-        },700);
-
-    });
-
-}
-
-// ======================================
-// TYPEWRITER EFFECT
-// ======================================
-
-function typeWriter(){
-
-    const paragraph=letter.querySelector("p");
-
-    const text=paragraph.innerText;
-
-    paragraph.innerHTML="";
-
-    let i=0;
-
-    const timer=setInterval(()=>{
-
-        paragraph.innerHTML+=text.charAt(i);
-
-        i++;
-
-        if(i>=text.length){
-
-            clearInterval(timer);
-
-        }
-
-    },18);
-
-}
-
-// ======================================
-// MUSIC CONTROL
-// ======================================
-
-const music=document.getElementById("bgMusic");
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.code==="Space"){
-
-        e.preventDefault();
-
-        if(music.paused){
-
-            music.play();
-
-        }
-
-        else{
-
-            music.pause();
-
-        }
-
-    }
-
-});
-
-// ======================================
-// BUTTON HOVER SOUND (OPTIONAL)
-// ======================================
-
-document.querySelectorAll("button").forEach(btn=>{
-
-    btn.addEventListener("mouseenter",()=>{
-
-        btn.style.transform="translateY(-4px) scale(1.05)";
-
-    });
-
-    btn.addEventListener("mouseleave",()=>{
-
-        btn.style.transform="translateY(0) scale(1)";
-
-    });
-
-});
-// ======================================
-// BLOW CANDLE
-// ======================================
-
-const blowBtn = document.getElementById("blowCandle");
-const cakeMessage = document.getElementById("cakeMessage");
-
-if (blowBtn) {
-
-    blowBtn.addEventListener("click", () => {
-
-        blowBtn.innerHTML = "🎉 Wish Complete";
-
-        cakeMessage.innerHTML = `
-            🎂 Happy Birthday Ali ❤️<br>
-            May Allah bless you with endless happiness, success,
-            good health and a beautiful future. Ameen 🤲
-        `;
-
-        createConfetti();
-        launchFireworks();
-
-    });
-
-}
-
-// ======================================
-// CONFETTI
-// ======================================
-
-function createConfetti() {
-
-    const container = document.getElementById("confetti");
-
-    for (let i = 0; i < 120; i++) {
-
-        const piece = document.createElement("div");
-
-        piece.style.position = "absolute";
-        piece.style.left = Math.random() * 100 + "%";
-        piece.style.top = "-20px";
-
-        piece.style.width = "8px";
-        piece.style.height = "15px";
-
-        piece.style.background =
-            `hsl(${Math.random()*360},90%,60%)`;
-
-        piece.style.opacity = "0.9";
-
-        piece.style.transform =
-            `rotate(${Math.random()*360}deg)`;
-
-        piece.style.transition =
-            "transform 4s linear, top 4s linear";
-
-        container.appendChild(piece);
-
-        requestAnimationFrame(() => {
-
-            piece.style.top = "110%";
-
-            piece.style.transform =
-                `translateX(${Math.random()*400-200}px)
-                 rotate(${Math.random()*720}deg)`;
-
-        });
-
-        setTimeout(() => piece.remove(), 4500);
-
-    }
-
-}
-
-// ======================================
-// FIREWORKS
-// ======================================
-
-function launchFireworks() {
-
-    const container = document.getElementById("fireworks");
-
-    for (let i = 0; i < 12; i++) {
-
-        setTimeout(() => {
-
-            const fire = document.createElement("div");
-
-            fire.style.position = "absolute";
-            fire.style.width = "18px";
-            fire.style.height = "18px";
-
-            fire.style.borderRadius = "50%";
-
-            fire.style.left = Math.random()*90 + "%";
-            fire.style.top = Math.random()*60 + "%";
-
-            fire.style.background =
-                `hsl(${Math.random()*360},100%,60%)`;
-
-            fire.style.boxShadow =
-                "0 0 30px white";
-
-            fire.style.animation =
-                "explode .9s ease-out";
-
-            container.appendChild(fire);
-
-            setTimeout(() => {
-
-                fire.remove();
-
-            },900);
-
-        },i*250);
-
-    }
-
-}
-
-// ======================================
-// FLOATING HEARTS
-// ======================================
-
-const hearts = document.getElementById("hearts");
-
-setInterval(()=>{
+function createHeart(){
 
     const heart=document.createElement("div");
 
     heart.className="heart";
 
-    heart.innerHTML="❤️";
+    heart.innerHTML="❤";
 
     heart.style.left=Math.random()*100+"%";
 
-    heart.style.fontSize=
-        (18+Math.random()*20)+"px";
+    heart.style.fontSize=(18+Math.random()*18)+"px";
+
+    heart.style.animationDuration=(6+Math.random()*5)+"s";
 
     hearts.appendChild(heart);
 
@@ -453,55 +544,108 @@ setInterval(()=>{
 
         heart.remove();
 
-    },10000);
+    },11000);
 
-},700);
+}
 
-// ======================================
-// RESTART
-// ======================================
+setInterval(createHeart,700);
 
-const restart=document.getElementById("restart");
+/*========================
+CONFETTI
+========================*/
 
-if(restart){
+const confetti=document.getElementById("confetti");
 
-restart.addEventListener("click",()=>{
+function createConfetti(){
 
-showPage(0);
+    for(let i=0;i<120;i++){
 
-window.scrollTo({
+        const piece=document.createElement("div");
 
-top:0,
-behavior:"smooth"
+        piece.style.position="absolute";
+
+        piece.style.left=Math.random()*100+"%";
+
+        piece.style.top="-20px";
+
+        piece.style.width="10px";
+
+        piece.style.height="10px";
+
+        piece.style.borderRadius="50%";
+
+        piece.style.background=
+        `hsl(${Math.random()*360},100%,60%)`;
+
+        piece.style.animation=
+        `fall ${3+Math.random()*2}s linear forwards`;
+
+        confetti.appendChild(piece);
+
+        setTimeout(()=>{
+
+            piece.remove();
+
+        },5000);
+
+    }
+
+}
+
+/*========================
+FIREWORKS
+========================*/
+
+const fireworks=document.getElementById("fireworks");
+
+function createFireworks(){
+
+    for(let i=0;i<30;i++){
+
+        const spark=document.createElement("div");
+
+        spark.style.position="absolute";
+
+        spark.style.left=Math.random()*100+"%";
+
+        spark.style.top=Math.random()*70+"%";
+
+        spark.style.width="8px";
+
+        spark.style.height="8px";
+
+        spark.style.borderRadius="50%";
+
+        spark.style.background=
+        `hsl(${Math.random()*360},100%,60%)`;
+
+        spark.style.animation=
+        "explode 1s ease-out forwards";
+
+        fireworks.appendChild(spark);
+
+        setTimeout(()=>{
+
+            spark.remove();
+
+        },1000);
+
+    }
+
+}
+
+/*========================
+IMAGE DRAG OFF
+========================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+    img.setAttribute("draggable","false");
 
 });
 
-if(cakeMessage){
+/*========================
+CONSOLE
+========================*/
 
-cakeMessage.innerHTML="";
-
-}
-
-if(blowBtn){
-
-blowBtn.innerHTML="🕯 Blow Candle";
-
-}
-
-});
-
-}
-
-// ======================================
-// PAGE LOAD
-// ======================================
-
-window.onload=()=>{
-
-showPage(0);
-
-};
-
-// ======================================
-// END
-// ======================================
+console.log("❤️ Happy Birthday Ali Website Loaded ❤️");
