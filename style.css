@@ -1619,3 +1619,17 @@ transform:scale(1);
 }
 
 }
+.gift-popup{
+
+opacity:0;
+visibility:hidden;
+transition:.5s;
+
+}
+
+.gift-popup.active{
+
+opacity:1;
+visibility:visible;
+
+}

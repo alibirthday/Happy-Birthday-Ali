@@ -685,7 +685,11 @@ alert(
 console.log("❤️ Happy Birthday Ali Website Loaded ❤️");
 /* Secret Gift */
 
-const prayerMessage=`🌙
+/* ==========================
+   SECRET GIFT
+========================== */
+
+const prayerMessage = `🌙
 
 Ya Allah,
 
@@ -718,64 +722,80 @@ I asked Allah to protect
 the person reading this.
 
 ❤️
-
-Happy Birthday Ali ❤️
-
-Made with endless prayers
-
-— Alishba
 `;
 
-const prayer=document.getElementById("prayerText");
+const prayer = document.getElementById("prayerText");
+const lastPrayer = document.getElementById("lastPrayer");
+const popup = document.getElementById("giftPopup");
+const close = document.getElementById("closeGift");
+const gift = document.getElementById("secretGift");
 
-const lastPrayer=document.getElementById("lastPrayer");
+gift.onclick = () => {
 
-const popup=document.getElementById("giftPopup");
+    popup.classList.add("active");
 
-const close=document.getElementById("closeGift");
+    close.style.display = "none";
 
-const gift=document.getElementById("secretGift");
+    createConfetti();
 
-gift.onclick=()=>{
+    createFireworks();
 
-popup.classList.add("active");
-close.style.display="none";
-createConfetti();
+    lastPrayer.style.display = "none";
 
-createFireworks();
+    prayer.textContent = "";
 
-lastPrayer.style.display="none";
+    // Agar popup dobara open ho to purana ending remove ho jaye
+    const oldEnding = document.querySelector(".final-glow");
+    if(oldEnding){
+        oldEnding.remove();
+    }
 
-prayer.textContent="";
+    setTimeout(() => {
 
-setTimeout(()=>{
+        lastPrayer.style.display = "block";
 
-lastPrayer.style.display="block";
+        let i = 0;
 
-let i=0;
+        const typing = setInterval(() => {
 
-const typing=setInterval(()=>{
+            prayer.textContent += prayerMessage.charAt(i);
 
-prayer.textContent+=prayerMessage.charAt(i);
+            i++;
 
-i++;
+            if(i >= prayerMessage.length){
 
-if(i>=prayerMessage.length){
+                clearInterval(typing);
 
-clearInterval(typing);
+                // Final Message
+                const final = document.createElement("h2");
 
-close.style.display="inline-block";
+                final.className = "final-glow";
 
-}
+                final.innerHTML = `
+                ❤️ Happy Birthday Ali ❤️
+                <br><br>
+                Made with Love,<br>
+                Countless Prayers,<br>
+                and Every Beat of My Heart ❤️
+                <br><br>
+                — Alishba
+                `;
 
-},35);
+                lastPrayer.appendChild(final);
 
-},5000);
+                // Close button show
+                close.style.display = "inline-block";
+
+            }
+
+        },35);
+
+    },5000);
 
 };
 
-close.onclick=()=>{
+close.onclick = () => {
 
-popup.classList.remove("active");
+    popup.classList.remove("active");
 
 };
